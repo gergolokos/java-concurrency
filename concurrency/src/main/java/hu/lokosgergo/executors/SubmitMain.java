@@ -12,9 +12,11 @@ public class SubmitMain {
     @SneakyThrows
     static void main() {
         try (var executorService = Executors.newFixedThreadPool(2)) {
+            //final String name = ""; Way to add variable to callable, or create a class that implements Callable
             Callable<Integer> task = () -> {
-                    Thread.sleep(Duration.ofSeconds(10));
-                    return 1;
+                //log.debug(name);
+                Thread.sleep(Duration.ofSeconds(10));
+                return 1;
             };
 
             Future<Integer> result = executorService.submit(task);
